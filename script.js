@@ -19,3 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+gsap.from(".anim *",{
+    y:100+"%",
+    stagger:0.5,
+})
