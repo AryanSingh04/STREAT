@@ -24,19 +24,33 @@ k.forEach((e)=>{
     })
 })
 
-document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('.footer-section h3');
-
-    sections.forEach(section => {
-        section.addEventListener('click', function() {
-            const content = this.nextElementSibling;
-            content.style.display = content.style.display === 'block' ? 'none' : 'block';
-        });
-    });
-});
-
 gsap.from(".anim *",{
     y:100+"%",
     stagger:0.5,
+})
+
+elems=document.querySelectorAll("footer .list h2")
+console.log(elems)
+elems.forEach((e)=>{
+    e.addEventListener("click",()=>{
+        const list=e.parentElement
+        const ul = list.querySelector('ul');
+        if (list.classList.contains('active')) {
+            // Closing the accordion
+            ul.style.maxHeight = null;
+            list.classList.remove('active');
+        } else {
+          
+            document.querySelectorAll('.footer-container .list').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('ul').style.maxHeight = null;
+            });
+            
+           
+            list.classList.add('active');
+            ul.style.maxHeight = ul.scrollHeight + 'px'; 
+        }
+       
+    })
 })
 
