@@ -203,6 +203,8 @@ background-position-y: 80%;
         overflow: hidden;
         text-wrap: nowrap;
         /* background-color: blueviolet; */
+
+        font-size: 8px;
         color: rgb(255, 255, 255);
         height: 40px;
         display: flex;
@@ -460,8 +462,8 @@ footer{
       margin-right: 10px;
     }
     #page3>h1{
-        height: 150px;
-    
+        height: fit-content;
+        padding-bottom: 1rem;
         font-size:25px ;
     }
     #page3 .collections{
@@ -476,6 +478,10 @@ footer{
            & .list{
             height: fit-content;
             gap: 0;
+
+            &.active h2::after{
+                transform: translateY(-50%)  rotate(180deg);
+            }
            }
             & .list h2{
                 border: 2px solid white;
@@ -489,6 +495,7 @@ footer{
                     display: flex;
                     align-items: center;
                     aspect-ratio: 1;
+                    
                     border-radius: 50%;
                     justify-content: center;
                     background-color: rgb(70, 70, 70);
@@ -496,21 +503,26 @@ footer{
                   position: absolute;
                   right: 5%;
                   top: 50%;
-                  transform: translateY(-50%);
+                  transform: translateY(-50%)  rotate(0deg);
                     color: rgb(255, 255, 255);
+                    transition: transform .5s;
                     content: "\f107"; /* Unicode for fa-angle-down */
                     font-family: 'Font Awesome 5 Free'
                 }
+                &.active::after{
+                  
+                }
             }
             & .list ul{
-                max-height: 0px;
+                max-height: 0;
                 height: fit-content;
                 transition: max-height 0.5s ease-out;
-                padding-top: 5%;
+                /* padding-top: 5%; */
                 overflow: hidden;
             }
-            & .list.active ul{
-                max-height: 1000px; 
+            & .list ul{
+                /* max-height: 1000px;  */
+               
             }
         }
     }

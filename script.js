@@ -38,16 +38,21 @@ elems.forEach((e)=>{
         if (list.classList.contains('active')) {
             // Closing the accordion
             ul.style.maxHeight = null;
+        
             list.classList.remove('active');
+            ul.style.paddingTop=0
         } else {
           
             document.querySelectorAll('.footer-container .list').forEach(item => {
                 item.classList.remove('active');
-                item.querySelector('ul').style.maxHeight = null;
+                const l=item.querySelector('ul')
+                l.style.maxHeight = null
+                l.style.paddingTop=0
             });
             
-           
+            // ul.style.display="block";
             list.classList.add('active');
+            ul.style.paddingTop=20 + "px"
             ul.style.maxHeight = ul.scrollHeight + 'px'; 
         }
        
